@@ -5,4 +5,4 @@
 .cache
 cache_vim
 state_vim.vim
-./vim/dein/repos/*
+.vim/dein/repos/*
