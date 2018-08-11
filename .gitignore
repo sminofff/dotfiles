@@ -1,0 +1,7 @@
+*.swp
+*~
+.DS_Store
+
+.cache
+cache_vim
+state_vim.vim
