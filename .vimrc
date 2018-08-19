@@ -104,6 +104,15 @@ autocmd QuickFixCmdPost *grep* cwindow
 " ステータス行に現在のgitブランチを表示する
 set statusline+=%{fugitive#statusline()}
 
+"------------------------------------------------------------
+" * vim-go
+"------------------------------------------------------------
+
+au FileType go nmap gi <Plug>(go-info)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap gt <Plug>(go-test)
+let g:go_fmt_command = "goimports"
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved

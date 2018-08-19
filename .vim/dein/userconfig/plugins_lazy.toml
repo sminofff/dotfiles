@@ -15,5 +15,14 @@ repo = 'fatih/vim-go'
 on_ft = ['go']
 
 [[plugins]]
+repo = 'vim-jp/vim-go-extra'
+on_ft = ['go']
+
+# go get -u github.com/cweill/gotests/...
+[[plugins]]
+repo = 'buoto/gotests-vim'
+on_ft = ['go']
+
+[[plugins]]
 repo = 'rcmdnk/vim-markdown'
 on_ft = ['md', 'markdown']
