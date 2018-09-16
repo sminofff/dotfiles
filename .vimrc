@@ -1,3 +1,4 @@
+au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
 " 文字コードをutf-8に設定
 set encoding=utf-8
 scriptencoding utf-8
