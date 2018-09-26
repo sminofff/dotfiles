@@ -1,3 +1,4 @@
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
 " 文字コードをutf-8に設定
 set encoding=utf-8
