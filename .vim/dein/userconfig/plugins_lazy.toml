@@ -7,6 +7,10 @@ repo      = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
 [[plugins]]
+repo = "lambdalisue/vim-pyenv"
+on_ft = ['python']
+
+[[plugins]]
 repo = "davidhalter/jedi-vim"
 on_ft = ['python']
 
