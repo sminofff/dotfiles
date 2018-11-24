@@ -3,6 +3,7 @@
 .DS_Store
 
 .cache
+.bashrc
 cache_vim
 state_vim.vim
 .vim/dein/repos/*
