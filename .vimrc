@@ -1,5 +1,9 @@
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
+"保存時に自動でチェック
+let g:PyFlakeOnWrite = 1
+let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+let g:PyFlakeDefaultComplexity=10
 " 文字コードをutf-8に設定
 set encoding=utf-8
 scriptencoding utf-8
