@@ -10,6 +10,7 @@ ZSH_THEME="mh"
 # SSHで接続した先で日本語が使えるようにする
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export GOPATH=$HOME/go
 
 # エディタ
 export EDITOR=/usr/local/bin/vim
@@ -19,7 +20,7 @@ export PAGER=/usr/local/bin/vimpager
 export MANPAGER=/usr/local/bin/vimpager
 
 # パスの設定
-export PATH=/usr/local/opt:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/opt/openssl/bin/:$PATH
+export PATH=/usr/local/opt:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/opt/openssl/bin/:$GOPATH/bin:$PATH
 
 
 #packer
