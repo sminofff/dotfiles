@@ -133,6 +133,8 @@ let g:PyFlakeDefaultComplexity=10
 au FileType go nmap gi <Plug>(go-info)
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap gt <Plug>(go-test)
+au FileType go nmap gds <Plug>(go-def-split)
+au FileType go nmap gdv <Plug>(go-def-vertical)
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['golint']
 let g:go_gocode_propose_source = 0
