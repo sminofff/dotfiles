@@ -1,99 +1,69 @@
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
-"保存時に自動でチェック
-let g:PyFlakeOnWrite = 1
-let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
-let g:PyFlakeDefaultComplexity=10
 " 文字コードをutf-8に設定
 set encoding=utf-8
 scriptencoding utf-8
-
 " 特殊文字の文字化けを修正する
 set ambiwidth=double
-
 " 他OSで作成されたファイルに対応
 set fileformats=unix,dos,mac
-
 " 行番号を表示
 set number
-
 " バックスペースキーの有効化
 set backspace=indent,eol,start
-
 " 前の行のインデントを継続させる
 set autoindent
-
 " 自動的にインデントを行う
 set smartindent
-
 " インデントする際のスペースの数
 set shiftwidth=2
-
+" ファイルによってインデントを変更する
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
 " タブを空白にに変換
 set expandtab
-
 " ハイライトを有効にする
 set hlsearch
-
 " 検索中に自動的にハイライトする
 set incsearch
-
 " 小文字で検索する際に、検索結果に大文字を含める
 set ignorecase
-
 " 検索文字列に、大文字と小文字が混在している場合に、区別して検索する。
 set smartcase
-
 " 検索が末尾まで終わると先頭に戻る
 set wrapscan
-
 " 現在の行に、下線を表示する
 set cursorline
-
 " （）を強調させる
 set showmatch
-
-" 自動的にIMEをオフにする
-set iminsert=0
-set imsearch=-1
-
-" コマンドの補完を有効化
-set wildmenu
-
-" コマンドの履歴を1000件保存
-set history=1000
-
-" 0で空行を挿入する
-nnoremap ` :<C-u>call append(expand('.'), '')<Cr>j
-
-" netrw
-set nocompatible
-filetype plugin on
-
-" ペースト時のインデントを防止
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-    set paste
-    return a:ret
-    endfunction
-
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    endif
-
 " 自動的に閉じかっこを入れる
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+"?
+set iminsert=0
+set imsearch=-1
+" コマンドの補完を有効化
+set wildmenu
+" コマンドの履歴を1000件保存
+set history=1000
+"空行を挿入する
+nnoremap ` :<C-u>call append(expand('.'), '')<Cr>j
+" netrw
+filetype plugin on
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
 
 " プラグインの自動起動
 autocmd VimEnter * execute 'NERDTree'
 
+" NERDTree Settings
 " dotfileを表示させる
 let NERDTreeShowHidden=1
+" treeの幅
+let NERDTreeWinSize=15
 
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_auto_colors=0
@@ -106,18 +76,6 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 " Gitを便利に使う
 " grep検索の実行後にQuickFix Listを表示する
 autocmd QuickFixCmdPost *grep* cwindow
-
-" ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
-
-"------------------------------------------------------------
-" * vim-go
-"------------------------------------------------------------
-
-au FileType go nmap gi <Plug>(go-info)
-au FileType go nmap gd <Plug>(go-def)
-au FileType go nmap gt <Plug>(go-test)
-let g:go_fmt_command = "goimports"
 
 "dein Scripts-----------------------------
 if &compatible
@@ -155,10 +113,29 @@ endif
 filetype plugin indent on
 syntax enable
 
-" インストールされていないプラグインがあればインストールする
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
 "End dein Scripts-------------------------
 
+"BufRead
+au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
+
+"Programing language settings------------
+"Python
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+"保存時に自動でチェック
+let g:PyFlakeOnWrite = 1
+let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
+let g:PyFlakeDefaultComplexity=10
+"Go
+au FileType go nmap gi <Plug>(go-info)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap gt <Plug>(go-test)
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['golint']
+let g:go_gocode_propose_source = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
