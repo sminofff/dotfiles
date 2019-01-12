@@ -125,7 +125,6 @@ au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
 "Programing language settings------------
 "Python
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-"保存時に自動でチェック
 let g:PyFlakeOnWrite = 1
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeDefaultComplexity=10
