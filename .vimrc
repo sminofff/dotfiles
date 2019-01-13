@@ -62,16 +62,23 @@ let g:table_mode_corner = '|'
 " Templates
 let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 " vim-plugin
-set ambiwidth=double
-" Powerline系フォントを利用する
 " Powerline系フォントを利用する
 set laststatus=2
+let g:airline_theme = 'papercolor'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:tmuxline_preset = 'tmux'
-let g:airline_theme = 'papercolor'
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+let g:airline_section_c = '%t'
+let g:airline_section_x = '%{&filetype}'
+let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+let g:airline#extensions#ale#error_symbol = ' '
+let g:airline#extensions#ale#warning_symbol = ' '
+let g:airline#extensions#default#section_truncate_width = {}
+let g:airline#extensions#whitespace#enabled = 1
+let g:tmuxline_preset = 'full'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -123,6 +130,11 @@ autocmd VimEnter * execute 'NERDTree'
 let NERDTreeShowHidden=1
 " treeの幅
 let NERDTreeWinSize=15
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_auto_colors=0
