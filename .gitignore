@@ -7,3 +7,4 @@
 cache_vim
 state_vim.vim
 .vim/dein/repos/*
+.tmux/plugins
