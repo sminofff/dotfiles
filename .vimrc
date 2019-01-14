@@ -197,7 +197,7 @@ au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
 "HTML
 let g:closetag_filenames = '*.html,*.vue'
 "Python
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8']
 let g:PyFlakeOnWrite = 1
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeDefaultComplexity=10
