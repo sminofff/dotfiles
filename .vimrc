@@ -21,6 +21,9 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.ts setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.gs setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 " タブを空白にに変換
 set expandtab
@@ -191,10 +194,19 @@ endif
 "End dein Scripts-------------------------
 
 "BufRead
-au BufRead,BufNewFile *.yml set ft=cloudformation.yaml
+au BufRead,BufNewFile *.cfn.yml set ft=cloudformation.yaml
 
 "Programing language settings------------
 "HTML
+autocmd BufRead,BufNewFile *.html set filetype=html
+let g:closetag_filenames = '*.html,*.vue'
+" Javascript
+let g:js_indent_typescript = 1
+autocmd BufRead,BufNewFile *.js set filetype=javascript
+let g:syntastic_javascript_checkers = ['eslint']
+" Typescript
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+
 let g:closetag_filenames = '*.html,*.vue'
 "Python
 let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8']

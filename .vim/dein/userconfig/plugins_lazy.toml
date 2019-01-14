@@ -78,3 +78,19 @@ on_ft = ['css', 'html']
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['css', 'html', 'javascript']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+on_ft = ['javascript', 'typescript', 'html']
+
+[[plugins]]
+repo = 'clausreinke/typescript-tools'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript']
