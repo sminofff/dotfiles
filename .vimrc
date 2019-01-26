@@ -65,6 +65,8 @@ let g:table_mode_corner = '|'
 " Templates
 let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 " vim-plugin
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
 " Powerline系フォントを利用する
 set laststatus=2
 let g:airline_theme = 'papercolor'
@@ -197,6 +199,8 @@ endif
 au BufRead,BufNewFile *.cfn.yml set ft=cloudformation.yaml
 
 "Programing language settings------------
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 "HTML
 autocmd BufRead,BufNewFile *.html set filetype=html
 let g:closetag_filenames = '*.html,*.vue'
