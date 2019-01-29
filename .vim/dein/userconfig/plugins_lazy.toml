@@ -1,7 +1,6 @@
 [[plugins]]
 repo   = 'Shougo/unite.vim'
 
-# unite.vim を読み込んだら一緒に読み込む
 [[plugins]]
 repo      = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
@@ -20,14 +19,6 @@ on_ft = ['python']
 
 [[plugins]]
 repo = "hynek/vim-python-pep8-indent"
-on_ft = ['python']
-
-[[plugins]]
-repo = "Townk/vim-autoclose"
-on_ft = ['python']
-
-[[plugins]]
-repo = "scrooloose/syntastic"
 on_ft = ['python']
 
 [[plugins]]
@@ -86,6 +77,18 @@ on_ft = ['typescript']
 [[plugins]]
 repo = 'jason0x43/vim-js-indent'
 on_ft = ['javascript', 'typescript', 'html']
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = ['javascript', 'typescript', 'html']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['javascript', 'typescript', 'html', 'css']
+
+[[plugins]]
+repo = 'marijnh/tern_for_vim'
+on_ft = ['javascript', 'javascript.jsx', 'html']
 
 [[plugins]]
 repo = 'clausreinke/typescript-tools'

@@ -14,6 +14,7 @@ do
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
 
+git clone https://github.com/tmux-plugins/tpm ~/dotfiles/.tmux/plugins/tpm
 #echo "link .config directory dotfiles"
 #cd ${DOT_DIRECTORY}/${DOT_CONFIG_DIRECTORY}
 #for file in `\find . -maxdepth 8 -type f`; do

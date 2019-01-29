@@ -42,9 +42,9 @@ set cursorline
 " （）を強調させる
 set showmatch
 " 自動的に閉じかっこを入れる
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
+"imap { {}<LEFT>
+"imap [ []<LEFT>
+"imap ( ()<LEFT>
 "?
 set iminsert=0
 set imsearch=-1
@@ -65,8 +65,8 @@ let g:table_mode_corner = '|'
 " Templates
 let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 " vim-plugin
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 1
+ let g:deoplete#enable_at_startup = 1
+ let g:deoplete#auto_completion_start_length = 1
 " Powerline系フォントを利用する
 set laststatus=2
 let g:airline_theme = 'papercolor'
@@ -206,6 +206,8 @@ autocmd BufRead,BufNewFile *.html set filetype=html
 let g:closetag_filenames = '*.html,*.vue'
 " Javascript
 let g:js_indent_typescript = 1
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufRead,BufNewFile *.js set filetype=javascript
 let g:syntastic_javascript_checkers = ['eslint']
 " Typescript
@@ -233,3 +235,48 @@ let g:go_highlight_structs = 1
 let g:go_def_mapping_enabled = 0
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
+
+" deoplete.vim
+let g:deoplete#enable_at_startup = 1
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
+function! s:check_back_space() abort "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" <BS>: close popup and delete backword char.
+inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#cancel_popup() . "\<CR>"
+endfunction
+
+" neosnippet.vim
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#expand_word_boundary = 1
+
+" LanguageClient-neovim
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls'],
+    \ 'html': [],
+    \ 'css': [],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
