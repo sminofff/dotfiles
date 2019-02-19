@@ -26,6 +26,7 @@ export PATH=/usr/local/opt:/opt/local/bin:/opt/local/sbin:/opt/local/include:/us
 #packer
 export PACKER_ROOT="$HOME/packer"
 PATH="$PACKER_ROOT:$RBENV_ROOT/bin:$PATH"
+source ~/.zprofile
 
 # -------------------------------------
 # zshのオプション
