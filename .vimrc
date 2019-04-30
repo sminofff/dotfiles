@@ -66,7 +66,7 @@ let g:table_mode_corner = '|'
 let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 " vim-plugin
  let g:deoplete#enable_at_startup = 1
- let g:deoplete#auto_completion_start_length = 1
+ let g:deoplete#auto_completion_start_length = 2
 " Powerline系フォントを利用する
 set laststatus=2
 let g:airline_theme = 'papercolor'
@@ -215,7 +215,8 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 let g:closetag_filenames = '*.html,*.vue'
 "Python
-let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8']
+autocmd BufRead,BufNewFile *.py set filetype=python
+let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8', 'pylint']
 let g:PyFlakeOnWrite = 1
 let g:PyFlakeCheckers = 'pep8,mccabe,pyflakes'
 let g:PyFlakeDefaultComplexity=10
@@ -236,6 +237,7 @@ let g:go_def_mapping_enabled = 0
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 " deoplete.vim
 let g:deoplete#enable_at_startup = 1
 " <TAB>: completion.
