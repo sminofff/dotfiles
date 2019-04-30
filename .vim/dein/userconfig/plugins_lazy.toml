@@ -71,7 +71,7 @@ repo = 'pangloss/vim-javascript'
 on_ft = ['css', 'html', 'javascript']
 
 [[plugins]]
-repo = 'leafgarland/typescript-vim'
+repo = 'clausreinke/typescript-tools.vim'
 on_ft = ['typescript']
 
 [[plugins]]

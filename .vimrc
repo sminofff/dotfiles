@@ -59,7 +59,7 @@ let g:cheatsheet#cheat_file = '~/.vim/cheatsheet.md'
 " netrw
 filetype plugin on
 " ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
+"set statusline+=%{fugitive#statusline()}
 " TableMode
 let g:table_mode_corner = '|'
 " Templates
