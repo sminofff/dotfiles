@@ -22,10 +22,6 @@ export MANPAGER=/usr/local/bin/vimpager
 # パスの設定
 export PATH=/usr/local/opt:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/opt/openssl/bin/:$GOPATH/bin:$PATH
 
-
-#packer
-export PACKER_ROOT="$HOME/packer"
-PATH="$PACKER_ROOT:$RBENV_ROOT/bin:$PATH"
 source ~/.zprofile
 
 # -------------------------------------

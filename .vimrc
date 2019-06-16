@@ -67,65 +67,6 @@ let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 " vim-plugin
  let g:deoplete#enable_at_startup = 1
  let g:deoplete#auto_completion_start_length = 2
-" Powerline系フォントを利用する
-set laststatus=2
-let g:airline_theme = 'papercolor'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
-let g:airline_section_c = '%t'
-let g:airline_section_x = '%{&filetype}'
-let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
-let g:airline#extensions#ale#error_symbol = ' '
-let g:airline#extensions#ale#warning_symbol = ' '
-let g:airline#extensions#default#section_truncate_width = {}
-let g:airline#extensions#whitespace#enabled = 1
-let g:tmuxline_preset = 'full'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" old vim-powerline symbols
-" let g:airline_left_sep = '⮀'
-" let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-" let g:airline_symbols.branch = '⭠'
-" let g:airline_symbols.readonly = '⭤'
-" let g:airline_symbols.linenr = '⭡'
-" tmuxline
 
 " プラグインの自動起動
 autocmd VimEnter * execute 'NERDTree'
@@ -136,11 +77,6 @@ let NERDTreeShowHidden=1
 " treeの幅
 let NERDTreeWinSize=15
 
-" open-browser.vim
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_auto_colors=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=33
@@ -149,7 +85,6 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
-" Gitを便利に使う
 " grep検索の実行後にQuickFix Listを表示する
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -196,24 +131,13 @@ endif
 "End dein Scripts-------------------------
 
 "BufRead
-au BufRead,BufNewFile *.cfn.yml set ft=cloudformation.yaml
+au BufRead,BufNewFile *.cfn.yaml set ft=cloudformation.yaml
 
 "Programing language settings------------
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
-"HTML
-autocmd BufRead,BufNewFile *.html set filetype=html
-let g:closetag_filenames = '*.html,*.vue'
-" Javascript
-let g:js_indent_typescript = 1
-autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-autocmd BufRead,BufNewFile *.js set filetype=javascript
-let g:syntastic_javascript_checkers = ['eslint']
-" Typescript
-autocmd BufRead,BufNewFile *.ts set filetype=typescript
+autocmd BufWritePre *.json,*.yaml Prettier
 
-let g:closetag_filenames = '*.html,*.vue'
+
 "Python
 autocmd BufRead,BufNewFile *.py set filetype=python
 let g:syntastic_python_checkers = ['pyflakes', 'pep8', 'flake8', 'pylint']
@@ -269,16 +193,3 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#enable_completed_snippet = 1
 let g:neosnippet#expand_word_boundary = 1
-
-" LanguageClient-neovim
-set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ 'html': [],
-    \ 'css': [],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>

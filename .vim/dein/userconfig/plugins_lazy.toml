@@ -51,53 +51,5 @@ repo = 'suan/vim-instant-markdown'
 on_ft = ['md', 'markdown']
 
 [[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html']
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-on_ft = ['css', 'html']
-
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = ['css', 'html']
-
-[[plugins]]
-repo = 'taichouchou2/html5.vim'
-on_ft = ['css', 'html']
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['css', 'html', 'javascript']
-
-[[plugins]]
-repo = 'clausreinke/typescript-tools.vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'jason0x43/vim-js-indent'
-on_ft = ['javascript', 'typescript', 'html']
-
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = ['javascript', 'typescript', 'html']
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = ['javascript', 'typescript', 'html', 'css']
-
-[[plugins]]
-repo = 'marijnh/tern_for_vim'
-on_ft = ['javascript', 'javascript.jsx', 'html']
-
-[[plugins]]
-repo = 'clausreinke/typescript-tools'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-on_ft = ['javascript']
-
-[[plugins]]
 repo = 'prettier/vim-prettier'
-on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+on_ft = ['json', 'yaml']
